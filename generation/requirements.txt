@@ -1,0 +1,5 @@
+# API provider timing generation.
+requests
+
+# The runner imports the benchmark package (datasets, audio_io) from the repo
+# root; no extra ML deps are needed for generation itself.

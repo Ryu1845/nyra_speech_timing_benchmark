@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "model": "example_model",
+  "dataset": "timit",
+  "condition": {"noise": "clean"},
+  "metadata": {
+    "system_type": "transcription",
+    "uses_reference_text": false,
+    "deployment": "local",
+    "description": "Example submission; words and times are made up.",
+    "organization": "Example Lab",
+    "contact": "you@example.com",
+    "model_url": "https://huggingface.co/example/model",
+    "paper_url": "",
+    "license": "apache-2.0",
+    "open_weights": true,
+    "publish_predictions": false
+  },
+  "predictions": {
+    "audio/TEST_DR4_MGMM0_SX139.wav": [
+      {"word": "hello", "start": 0.15, "end": 0.52},
+      {"word": "world", "start": 0.55, "end": 1.02}
+    ]
+  }
+}

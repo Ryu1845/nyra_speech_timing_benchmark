@@ -1,0 +1,13 @@
+{
+  "model": "qwen_fa-Qwen3-ForcedAligner-0.6B",
+  "dataset": "buckeye",
+  "num_clips": 100,
+  "num_errors": 0,
+  "audio_seconds": 1998.47,
+  "mean_clip_seconds": 19.98,
+  "rtf": 0.0027849029681805246,
+  "median_latency_s": 0.05480288795661181,
+  "deployment": "local",
+  "device": "NVIDIA L40",
+  "date": "2026-11-02"
+}

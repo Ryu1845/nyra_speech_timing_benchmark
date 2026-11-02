@@ -1,0 +1,13 @@
+{
+  "model": "crisperwhisper-transformers-large-v2_verbatimize_longform_with_timing_release",
+  "dataset": "buckeye",
+  "num_clips": 100,
+  "num_errors": 0,
+  "audio_seconds": 1998.47,
+  "mean_clip_seconds": 19.98,
+  "rtf": 0.3013718327708351,
+  "median_latency_s": 6.026417533052154,
+  "deployment": "local",
+  "device": "NVIDIA L40",
+  "date": "2026-11-02"
+}

@@ -1,0 +1,13 @@
+{
+  "model": "mfa-english_mfa",
+  "dataset": "buckeye",
+  "num_clips": 100,
+  "num_errors": 0,
+  "audio_seconds": 1998.47,
+  "mean_clip_seconds": 19.98,
+  "rtf": 1.1246591606456817,
+  "median_latency_s": 22.45310210599564,
+  "deployment": "local",
+  "device": "x86_64",
+  "date": "2026-11-02"
+}

@@ -1,0 +1,13 @@
+{
+  "model": "whisperx-large-v3-turbo",
+  "dataset": "buckeye",
+  "num_clips": 100,
+  "num_errors": 0,
+  "audio_seconds": 1998.47,
+  "mean_clip_seconds": 19.98,
+  "rtf": 0.032901847095238274,
+  "median_latency_s": 0.6571963930036873,
+  "deployment": "local",
+  "device": "NVIDIA L40",
+  "date": "2026-11-02"
+}

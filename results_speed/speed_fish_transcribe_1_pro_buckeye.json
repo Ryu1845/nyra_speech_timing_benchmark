@@ -1,0 +1,13 @@
+{
+  "model": "fish_transcribe_1_pro",
+  "dataset": "buckeye",
+  "num_clips": 100,
+  "num_errors": 0,
+  "audio_seconds": 1998.47,
+  "mean_clip_seconds": 19.98,
+  "rtf": 0.048154999445641555,
+  "median_latency_s": 0.9086665520444512,
+  "deployment": "hosted_api",
+  "device": "x86_64",
+  "date": "2026-11-02"
+}

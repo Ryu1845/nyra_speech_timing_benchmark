@@ -1,0 +1,13 @@
+{
+  "model": "mms_fa",
+  "dataset": "buckeye",
+  "num_clips": 100,
+  "num_errors": 0,
+  "audio_seconds": 1998.47,
+  "mean_clip_seconds": 19.98,
+  "rtf": 0.002765268850522357,
+  "median_latency_s": 0.05486052995547652,
+  "deployment": "local",
+  "device": "NVIDIA L40",
+  "date": "2026-11-03"
+}

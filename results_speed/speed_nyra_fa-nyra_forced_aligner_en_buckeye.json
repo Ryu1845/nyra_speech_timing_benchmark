@@ -1,0 +1,13 @@
+{
+  "model": "nyra_fa-nyra_forced_aligner_en",
+  "dataset": "buckeye",
+  "num_clips": 100,
+  "num_errors": 0,
+  "audio_seconds": 1998.47,
+  "mean_clip_seconds": 19.98,
+  "rtf": 0.002394009580593073,
+  "median_latency_s": 0.04548961389809847,
+  "deployment": "local",
+  "device": "NVIDIA L40",
+  "date": "2026-11-02"
+}

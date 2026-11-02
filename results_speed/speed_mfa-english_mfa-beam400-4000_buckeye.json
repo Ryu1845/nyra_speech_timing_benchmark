@@ -1,0 +1,13 @@
+{
+  "model": "mfa-english_mfa-beam400-4000",
+  "dataset": "buckeye",
+  "num_clips": 100,
+  "num_errors": 0,
+  "audio_seconds": 1998.47,
+  "mean_clip_seconds": 19.98,
+  "rtf": 1.1790709570592741,
+  "median_latency_s": 23.554461515974253,
+  "deployment": "local",
+  "device": "x86_64",
+  "date": "2026-11-03"
+}

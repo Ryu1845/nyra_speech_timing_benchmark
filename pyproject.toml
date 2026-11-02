@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nyra-speech-timing-benchmark"
+version = "0.1.0"
+description = "Model-agnostic benchmark for word-level speech timing accuracy (MAE, F1@xms, mIoU)."
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = ["numpy>=1.21"]
+
+[project.optional-dependencies]
+noise = ["soundfile", "scipy"]
+test = ["pytest", "soundfile", "scipy"]
+whisperx = ["whisperx"]
+nemo = ["nemo_toolkit[asr]"]
+ctc = ["torchaudio", "ctc-segmentation"]
+qwen = ["qwen-asr"]
+
+[project.scripts]
+nyra-timing = "nyra_timing_benchmark.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["nyra_timing_benchmark*"]

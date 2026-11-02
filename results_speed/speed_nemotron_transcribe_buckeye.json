@@ -1,0 +1,13 @@
+{
+  "model": "nemotron_transcribe",
+  "dataset": "buckeye",
+  "num_clips": 100,
+  "num_errors": 0,
+  "audio_seconds": 1998.47,
+  "mean_clip_seconds": 19.98,
+  "rtf": 0.0499665272129125,
+  "median_latency_s": 1.0096374490531161,
+  "deployment": "local",
+  "device": "NVIDIA L40",
+  "date": "2026-11-03"
+}

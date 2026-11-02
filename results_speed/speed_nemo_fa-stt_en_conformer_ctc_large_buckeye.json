@@ -1,0 +1,13 @@
+{
+  "model": "nemo_fa-stt_en_conformer_ctc_large",
+  "dataset": "buckeye",
+  "num_clips": 100,
+  "num_errors": 0,
+  "audio_seconds": 1998.47,
+  "mean_clip_seconds": 19.98,
+  "rtf": 0.010951461637445939,
+  "median_latency_s": 0.21365972107741982,
+  "deployment": "local",
+  "device": "NVIDIA L40",
+  "date": "2026-11-02"
+}

@@ -1,0 +1,13 @@
+{
+  "model": "olign_v1",
+  "dataset": "buckeye",
+  "num_clips": 100,
+  "num_errors": 0,
+  "audio_seconds": 1998.47,
+  "mean_clip_seconds": 19.98,
+  "rtf": 0.20189174364236534,
+  "median_latency_s": 3.937979457085021,
+  "deployment": "hosted_api",
+  "device": "NVIDIA L40",
+  "date": "2026-11-03"
+}

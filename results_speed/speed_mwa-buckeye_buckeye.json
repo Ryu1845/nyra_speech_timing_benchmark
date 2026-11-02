@@ -1,0 +1,13 @@
+{
+  "model": "mwa-buckeye",
+  "dataset": "buckeye",
+  "num_clips": 100,
+  "num_errors": 0,
+  "audio_seconds": 1998.47,
+  "mean_clip_seconds": 19.98,
+  "rtf": 1.1864068444694027,
+  "median_latency_s": 23.521948526031338,
+  "deployment": "local",
+  "device": "NVIDIA L40",
+  "date": "2026-11-03"
+}

@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+results/
+*.egg
+.DS_Store
+
+# Large raw provider API responses (107M); regenerate via generation/ scripts.
+# The scored results (results_full/, results_api/) and canonical predictions/
+# are kept so the benchmark is inspectable and re-scoreable without API calls.
+generation/outputs/

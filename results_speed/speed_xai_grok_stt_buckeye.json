@@ -1,0 +1,13 @@
+{
+  "model": "xai_grok_stt",
+  "dataset": "buckeye",
+  "num_clips": 100,
+  "num_errors": 0,
+  "audio_seconds": 1998.47,
+  "mean_clip_seconds": 19.98,
+  "rtf": 0.02807420745431571,
+  "median_latency_s": 0.517649578046985,
+  "deployment": "hosted_api",
+  "device": "x86_64",
+  "date": "2026-11-02"
+}

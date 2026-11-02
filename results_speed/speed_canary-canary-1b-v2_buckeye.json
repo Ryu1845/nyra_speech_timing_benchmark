@@ -1,0 +1,13 @@
+{
+  "model": "canary-canary-1b-v2",
+  "dataset": "buckeye",
+  "num_clips": 100,
+  "num_errors": 0,
+  "audio_seconds": 1998.47,
+  "mean_clip_seconds": 19.98,
+  "rtf": 0.055705430957161274,
+  "median_latency_s": 1.1164544319035485,
+  "deployment": "local",
+  "device": "NVIDIA L40",
+  "date": "2026-11-02"
+}
