@@ -5,9 +5,9 @@
   "num_errors": 0,
   "audio_seconds": 1998.47,
   "mean_clip_seconds": 19.98,
-  "rtf": 0.002394009580593073,
-  "median_latency_s": 0.04548961389809847,
+  "rtf": 0.002208339584934258,
+  "median_latency_s": 0.04198747896589339,
   "deployment": "local",
   "device": "NVIDIA L40",
-  "date": "2026-11-02"
+  "date": "2026-11-10"
 }

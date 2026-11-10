@@ -51,7 +51,7 @@ The best systems sit in the upper right.
 
 | System | Type | Deployment | Word recall | MAE (ms) | mIoU | Acc@25ms | Acc@50ms | Acc@100ms | Acc@200ms | Speed (× real time) |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `nyra_fa` (nyra labs) | forced aligner | local | 100.0 | 20.1 | 83.0 | 63.3 | 88.8 | 97.2 | 99.3 | 418× |
+| `nyra_fa` (nyra labs) | forced aligner | local | 100.0 | 20.2 | 82.9 | 63.0 | 88.7 | 97.2 | 99.3 | 453× |
 | `mfa` (MFA 3.3.9, `english_mfa` 3.1.0, wide beam) | forced aligner | local | 99.9 | 35.7 | 79.0 | 53.0 | 79.1 | 92.1 | 96.8 | 0.8× |
 | `olign_v1` (Olewave) | forced aligner | hosted API | 99.9 | 35.7 | 81.9 | 61.3 | 78.5 | 89.5 | 96.1 | 5.0× |
 | `mfa` (MFA 3.3.9, `english_mfa` 3.1.0, default beam) | forced aligner | local | 98.7 | 48.9 | 78.2 | 52.5 | 78.3 | 91.2 | 95.9 | 0.9× |
@@ -77,7 +77,7 @@ The best systems sit in the upper right.
 
 | System | Type | Deployment | Word recall | MAE (ms) | mIoU | Acc@25ms | Acc@50ms | Acc@100ms | Acc@200ms | Speed (× real time) |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `nyra_fa` (nyra labs) | forced aligner | local | 99.9 | 75.5 | 75.1 | 37.2 | 72.2 | 85.1 | 91.8 | 418× |
+| `nyra_fa` (nyra labs) | forced aligner | local | 99.9 | 75.3 | 75.3 | 38.9 | 72.1 | 85.0 | 91.7 | 453× |
 | `mfa` (MFA 3.3.9, `english_mfa` 3.1.0, wide beam) | forced aligner | local | 100.0 | 160.3 | 61.6 | 22.3 | 49.3 | 68.2 | 80.9 | 0.8× |
 | `mfa` (MFA 3.3.9, `english_mfa` 3.1.0, default beam) | forced aligner | local | 93.1 | 227.6 | 61.2 | 21.7 | 49.2 | 67.8 | 80.1 | 0.9× |
 | `fish_transcribe_1_pro` (Fish Audio) | ASR system | hosted API | 90.3 | 91.8 | 63.3 | 16.6 | 49.2 | 75.8 | 87.9 | 21× |
@@ -110,7 +110,7 @@ trained on TIMIT (in-domain).
 | System | clean | 30 dB | 20 dB | 10 dB | 5 dB | 0 dB |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | `olign_v1` (Olewave) | 83.8 | 84.1 | 82.6 | 74.1 | 56.6 | 25.0 |
-| `nyra_fa` (nyra labs) | 80.2 | 80.5 | 81.3 | 79.5 | 72.9 | 45.7 |
+| `nyra_fa` (nyra labs) | 82.1 | 82.4 | 83.0 | 81.5 | 75.7 | 49.8 |
 | `mfa` (MFA 3.3.9, `english_mfa` 3.1.0, wide beam) | 77.7 | 76.9 | 64.0 | 34.0 | 16.2 | 4.2 |
 | `mfa` (MFA 3.3.9, `english_mfa` 3.1.0, default beam) | 77.6 | 76.7 | 63.9 | 33.8 | 14.0 | 2.2 |
 | `qwen_fa` (Qwen) | 70.8 | 72.3 | 70.8 | 51.5 | 29.7 | 13.2 |
@@ -178,7 +178,7 @@ timestamp alignment on one FluencyBank clip, also on retry; their words count as
 
 | System | Type | Model / API | Deployment |
 | --- | --- | --- | --- |
-| `nyra_fa` (nyra labs) | forced aligner | `nyralabs/nyra_forced_aligner_en` | local |
+| `nyra_fa` (nyra labs) | forced aligner | `nyralabs/nyra_forced_aligner_en`, `nyra-forced-aligner` 0.2.5 | local |
 | `mfa` (MFA 3.3.9, `english_mfa` 3.1.0, default beam) | forced aligner | Montreal Forced Aligner 3.3.9, pretrained `english_mfa` 3.1.0 acoustic model and dictionary, default beam 10 / retry beam 40 (`--model mfa`) | local (CPU) |
 | `mfa` (MFA 3.3.9, `english_mfa` 3.1.0, wide beam) | forced aligner | same model, beam 400 / retry beam 4000, so almost no utterance is dropped (`--model mfa_widebeam`) | local (CPU) |
 | `qwen_fa` (Qwen) | forced aligner | `Qwen/Qwen3-ForcedAligner-0.6B` | local |
