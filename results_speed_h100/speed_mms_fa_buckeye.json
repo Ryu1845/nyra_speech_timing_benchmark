@@ -1,0 +1,13 @@
+{
+  "model": "mms_fa",
+  "dataset": "buckeye",
+  "num_clips": 100,
+  "num_errors": 0,
+  "audio_seconds": 1998.47,
+  "mean_clip_seconds": 19.98,
+  "rtf": 0.0023128949276291495,
+  "median_latency_s": 0.04508541338145733,
+  "deployment": "local",
+  "device": "NVIDIA H100 80GB HBM3",
+  "date": "2026-11-11"
+}

@@ -1,0 +1,13 @@
+{
+  "model": "fusealign-multilingual-cjkft-step2500",
+  "dataset": "buckeye",
+  "num_clips": 100,
+  "num_errors": 0,
+  "audio_seconds": 1998.47,
+  "mean_clip_seconds": 19.98,
+  "rtf": 0.0013300261918295514,
+  "median_latency_s": 0.025133772753179073,
+  "deployment": "local",
+  "device": "NVIDIA H100 80GB HBM3",
+  "date": "2026-11-11"
+}

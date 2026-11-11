@@ -17,6 +17,7 @@ whisperx = ["whisperx"]
 nemo = ["nemo_toolkit[asr]"]
 ctc = ["torchaudio", "ctc-segmentation"]
 qwen = ["qwen-asr"]
+fusealign = ["fusealign-hub @ git+https://github.com/Zyphra/fusealign-multilingual.git@1f141d60bd983c6af7cba25ea5dae8951ad65818", "soundfile"]
 
 [project.scripts]
 nyra-timing = "nyra_timing_benchmark.cli:main"

@@ -59,6 +59,12 @@ def _make_mms_fa(**kwargs) -> TimingModel:
     return MmsFaModel(**kwargs)
 
 
+def _make_fusealign(**kwargs) -> TimingModel:
+    from .fusealign_adapter import FuseAlignModel
+
+    return FuseAlignModel(**kwargs)
+
+
 def _mwa(model_name: str) -> Callable[..., TimingModel]:
     def make(**kwargs) -> TimingModel:
         from .mwa_adapter import MwaModel
@@ -143,6 +149,7 @@ MODEL_FACTORIES: Dict[str, Callable[..., TimingModel]] = {
     "mfa": _make_mfa,
     "mfa_widebeam": _make_mfa_widebeam,
     "mms_fa": _make_mms_fa,
+    "fusealign": _make_fusealign,
     "mwa_buckeye": _mwa("buckeye"),
     "mwa_timit": _mwa("timit"),
     "crisperwhisper": _make_crisperwhisper,
@@ -170,6 +177,7 @@ MODEL_IS_FORCED_ALIGNER: Dict[str, bool] = {
     "mfa": True,
     "mfa_widebeam": True,
     "mms_fa": True,
+    "fusealign": True,
     "mwa_buckeye": True,
     "mwa_timit": True,
     "crisperwhisper": False,

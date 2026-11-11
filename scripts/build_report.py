@@ -31,7 +31,7 @@ NAMES = {
     "mfa-": "mfa", "ctc_segmentation-": "ctc_segmentation", "nemo_fa-": "nemo_fa",
     "crisperwhisper-transformers-large-v2_verbatimize_longform_with_timing_release":
         "crisperwhisper_2.0_large",
-    "whisperx-": "whisperx", "canary-": "canary",
+    "whisperx-": "whisperx", "canary-": "canary", "fusealign-": "fusealign",
 }
 # Speed comes from the deployment backend where it differs from the scored one.
 SPEED_FILE_OVERRIDE = {
@@ -47,6 +47,7 @@ LABELS = {
     "crisperwhisper_2.0_large": "`crisperwhisper_2.0_large` (nyra labs)",
     "qwen_fa": "`qwen_fa` (Qwen)",
     "mms_fa": "`mms_fa` (Meta)",
+    "fusealign": "`fusealign` (Zyphra)",
     "mwa_buckeye": "`mwa_buckeye` (MLSpeech)",
     "mwa_timit": "`mwa_timit` (MLSpeech)",
     "olign_v1": "`olign_v1` (Olewave)",
@@ -201,7 +202,7 @@ SPEED_LABEL_OFFSET = {
     "assemblyai_u35_pro": (7, 0, "left"), "cartesia_ink_whisper": (-7, 0, "right"),
     "deepgram_nova3": (7, 0, "left"), "whisperx": (-7, 0, "right"),
     "canary": (7, 0, "left"), "olign_v1": (7, -5, "left"), "mwa_buckeye": (7, 0, "left"),
-    "mwa_timit": (7, 0, "left"), "mms_fa": (7, -6, "left"),
+    "mwa_timit": (7, 0, "left"), "mms_fa": (7, -6, "left"), "fusealign": (7, 0, "left"),
 }
 
 

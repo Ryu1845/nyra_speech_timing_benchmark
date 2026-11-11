@@ -32,7 +32,9 @@ transcript; ASR systems are timed on the words they recognised, so read their
 accuracy together with **word recall**. **Speed** = how many times faster than
 real time a system processes one clip (higher is faster, see [How to read the numbers](#-how-to-read-the-numbers)).
 Exact definitions of all metrics are in [Metric definitions](#-metric-definitions).
-All local systems ran on a single NVIDIA L40 GPU; for hosted APIs, speed
+All local systems ran on a single NVIDIA L40 GPU except `fusealign`, which was timed on an
+NVIDIA H100 80GB (on that H100 `mms_fa` runs at 432× real time against 362× on the L40;
+`results_speed_h100/`); for hosted APIs, speed
 includes uploading the audio and the network round trip. Full tables, including TIMIT
 and F1, are in [`docs/RESULTS.md`](docs/RESULTS.md).
 
@@ -57,6 +59,7 @@ The best systems sit in the upper right.
 | `mfa` (MFA 3.3.9, `english_mfa` 3.1.0, default beam) | forced aligner | local | 98.7 | 48.9 | 78.2 | 52.5 | 78.3 | 91.2 | 95.9 | 0.9× |
 | `fish_transcribe_1_pro` (Fish Audio) | ASR system | hosted API | 93.2 | 35.5 | 71.9 | 28.9 | 75.8 | 94.9 | 98.4 | 21× |
 | `qwen_fa` (Qwen) | forced aligner | local | 99.9 | 39.4 | 71.1 | 28.7 | 75.0 | 94.4 | 97.9 | 359× |
+| `fusealign` (Zyphra) | forced aligner | local | 100.0 | 36.6 | 73.5 | 31.6 | 70.8 | 90.8 | 96.3 | 752× |
 | `crisperwhisper_2.0_large` (nyra labs) | ASR system | local | 93.2 | 38.8 | 71.7 | 32.7 | 66.1 | 87.4 | 96.7 | 35× |
 | `mwa_buckeye` (MLSpeech) | forced aligner | local | 100.0 | 108.7 | 64.6 | 38.9 | 58.9 | 73.2 | 80.7 | 0.8× |
 | `mwa_timit` (MLSpeech) | forced aligner | local | 100.0 | 143.2 | 58.9 | 31.7 | 51.3 | 66.4 | 75.8 | 0.8× |
@@ -74,6 +77,8 @@ The best systems sit in the upper right.
 | `whisperx` | ASR system | local | 88.1 | 89.8 | 42.0 | 1.0 | 8.7 | 54.0 | 93.7 | 30× |
 
 ### 🔁 FluencyBank (stuttered speech, 300 clips, 5,487 words)
+
+`fusealign` was not run on FluencyBank.
 
 | System | Type | Deployment | Word recall | MAE (ms) | mIoU | Acc@25ms | Acc@50ms | Acc@100ms | Acc@200ms | Speed (× real time) |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -111,6 +116,7 @@ trained on TIMIT (in-domain).
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | `olign_v1` (Olewave) | 83.8 | 84.1 | 82.6 | 74.1 | 56.6 | 25.0 |
 | `nyra_fa` (nyra labs) | 82.1 | 82.4 | 83.0 | 81.5 | 75.7 | 49.8 |
+| `fusealign` (Zyphra) | 80.3 | 73.4 | 73.2 | 75.1 | 74.0 | 69.6 |
 | `mfa` (MFA 3.3.9, `english_mfa` 3.1.0, wide beam) | 77.7 | 76.9 | 64.0 | 34.0 | 16.2 | 4.2 |
 | `mfa` (MFA 3.3.9, `english_mfa` 3.1.0, default beam) | 77.6 | 76.7 | 63.9 | 33.8 | 14.0 | 2.2 |
 | `qwen_fa` (Qwen) | 70.8 | 72.3 | 70.8 | 51.5 | 29.7 | 13.2 |
@@ -154,7 +160,7 @@ Acc@50ms and word recall per SNR are in
   one clip at a time (no batching, no concurrency) on the 100 longest Buckeye
   clips (20 s each, 33 min of audio), after loading the model and two untimed
   warm-up clips. Local systems ran sequentially on one NVIDIA L40 GPU with
-  nothing else on it (`mfa` runs on the CPU); `crisperwhisper_2.0_large` is timed with its CTranslate2
+  nothing else on it (`fusealign`: one NVIDIA H100, see above) (`mfa` runs on the CPU); `crisperwhisper_2.0_large` is timed with its CTranslate2
   backend. For hosted APIs it is the end-to-end request time (uploading the
   audio, queueing, processing, returning the response), i.e. what a caller
   waits. Requests were sent from a cloud VM in Montréal with a very fast
@@ -182,6 +188,7 @@ timestamp alignment on one FluencyBank clip, also on retry; their words count as
 | `mfa` (MFA 3.3.9, `english_mfa` 3.1.0, default beam) | forced aligner | Montreal Forced Aligner 3.3.9, pretrained `english_mfa` 3.1.0 acoustic model and dictionary, default beam 10 / retry beam 40 (`--model mfa`) | local (CPU) |
 | `mfa` (MFA 3.3.9, `english_mfa` 3.1.0, wide beam) | forced aligner | same model, beam 400 / retry beam 4000, so almost no utterance is dropped (`--model mfa_widebeam`) | local (CPU) |
 | `qwen_fa` (Qwen) | forced aligner | `Qwen/Qwen3-ForcedAligner-0.6B` | local |
+| `fusealign` (Zyphra) | forced aligner | [FuseAlign](https://github.com/Zyphra/fusealign-multilingual) (`fusealign_hub` at `1f141d6`), checkpoint `Zyphra/fusealign` `fusealign-multilingual-cjkft-step2500`, bf16 on CUDA | local |
 | `ctc_segmentation` | forced aligner | `wav2vec2-base-960h` + CTC segmentation | local |
 | `nemo_fa` (NVIDIA) | forced aligner | NeMo `stt_en_conformer_ctc_large` + Viterbi | local |
 | `mms_fa` (Meta) | forced aligner | torchaudio `MMS_FA` (wav2vec2 trained on MMS data) + CTC Viterbi | local |
@@ -220,6 +227,7 @@ results. External systems take part by
 pip install -e .
 pip install -e ".[noise]"      # noise rendering / robustness runs
 pip install -e ".[whisperx]"   # optional: built-in WhisperX adapter
+pip install -e ".[fusealign]"  # optional: FuseAlign adapter
 ```
 
 This installs the `nyra-timing` CLI. `numpy` is the only dependency of the
@@ -358,6 +366,7 @@ nyra-timing run --dataset timit --model mfa --num-samples 50 --out results/ --sa
 | `nemo_fa` | forced aligner | `stt_en_conformer_ctc_large` | `nemo_toolkit[asr]` |
 | `ctc_segmentation` | forced aligner | `wav2vec2-base-960h` | `torchaudio`, `ctc-segmentation` |
 | `qwen_fa` | forced aligner | `Qwen/Qwen3-ForcedAligner-0.6B` | `qwen-asr` |
+| `fusealign` | forced aligner | `Zyphra/fusealign` (`fusealign-multilingual-cjkft-step2500`) | `fusealign-hub` (git, pinned in the `fusealign` extra) |
 | `mfa` | forced aligner | `english_mfa` | MFA binary + `english_mfa` model/dict |
 | `mfa_widebeam` | forced aligner | `english_mfa`, beam 400 / retry beam 4000 | MFA binary + `english_mfa` model/dict |
 | `crisperwhisper` | free ASR w/ attention timing | CrisperWhisper 2.0 large (`nyralabs/CrisperWhisper2.0_large`; local `large-v2_verbatimize_longform_with_timing_release`) | local `crisperwhisper` with `transformers` or `ct2` extras |
@@ -366,7 +375,7 @@ nyra-timing run --dataset timit --model mfa --num-samples 50 --out results/ --sa
 | `mwa_buckeye` / `mwa_timit` | forced aligner | Multilingual-Word-Aligner, `buckeye` / `timit` model | MWA checkout in a separate venv (see below) |
 
 **Forced aligners** (`nemo_fa`, `ctc_segmentation`, `qwen_fa`, `mfa`,
-`nyra_fa`, `mms_fa`, `mwa_*`) consume the
+`nyra_fa`, `mms_fa`, `fusealign`, `mwa_*`) consume the
 ground-truth words and only predict their timings; the `run` command passes the
 reference text automatically. **Free ASR** models (`whisperx`, `canary`, `nemotron_transcribe`,
 `crisperwhisper`) emit their own words, which are then text-aligned to the
@@ -395,6 +404,12 @@ dependency only fails when that model is requested (with a clear message).
   ```
   The adapter also installs a small compatibility shim so `qwen_asr`'s
   `@check_model_inputs()` decorator works on either transformers signature.
+- **`fusealign`**: needs `transformers` ≥ 4.57 (Dia's text encoder) and `torch` ≥ 2.5.
+  Use a dedicated venv (the runs here: Python 3.12, torch/torchaudio 2.8.0 cu128,
+  transformers 4.57.3) and `pip install -e '.[fusealign]'`. The first load downloads
+  the 1.34 GB checkpoint from `Zyphra/fusealign`. Clips over 30 s (only in
+  FluencyBank) use the package's long-form path, which runs Whisper large-v3 for
+  anchors.
 - **`whisperx`**: PyTorch ≥2.6 defaults `torch.load(weights_only=True)`, which
   rejects pyannote's VAD checkpoint. The adapter allowlists the needed
   `omegaconf` globals and forces `weights_only=False` for the (trusted, local)
